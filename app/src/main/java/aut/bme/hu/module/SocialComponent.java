@@ -2,6 +2,7 @@ package aut.bme.hu.module;
 
 import javax.inject.Singleton;
 
+import aut.bme.hu.mobszoft_projekt.MainActivity;
 import aut.bme.hu.service.LoginService;
 import dagger.Component;
 
@@ -13,5 +14,7 @@ import dagger.Component;
 public interface SocialComponent {
 
     LoginService provideLoginService();
+
+    void inject(MainActivity mainActivity);
 
 }

@@ -9,12 +9,18 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import javax.inject.Inject;
+
+import aut.bme.hu.app.SocialApplication;
 import aut.bme.hu.module.DaggerSocialComponent;
 import aut.bme.hu.module.SocialComponent;
 import aut.bme.hu.module.SocialModule;
 import aut.bme.hu.service.LoginService;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Inject
+    LoginService loginService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +29,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SocialComponent component = DaggerSocialComponent.builder().socialModule(new SocialModule()).build();
+        SocialApplication.injector.inject(this);
 
-        LoginService loginService = component.provideLoginService();
         loginService.login("hello", "bello");
 
 
-        //        vehicle = component.provideVehicle();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
