@@ -23,6 +23,7 @@ deploy:
 notifications:
   email:
     recipients:
-    - myemail@address.com
+    - mateborbely@gmail.com
     on_success: always
     on_failure: always
+script: ./gradlew :app:build
