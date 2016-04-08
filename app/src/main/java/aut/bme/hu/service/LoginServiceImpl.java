@@ -14,7 +14,8 @@ import dagger.Component;
 public class LoginServiceImpl implements LoginService{
 
     @Override
-    public void login(String email, String password) {
+    public boolean login(String email, String password) {
         Log.i("LoginServiceImpl", email);
+        return true;
     }
 }
