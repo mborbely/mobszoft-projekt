@@ -12,39 +12,7 @@
     tools:context="aut.bme.hu.mobszoft_projekt.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/title"
-        android:text="Please log in" />
-    
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="100dp"
-        android:id="@+id/email"
-        android:layout_below="@+id/title"
-        />
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/password"
-        android:paddingTop="20dp"
-        android:password="true"
-        android:layout_below="@+id/email"
-        />
-    
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:text="Log in"
-        android:paddingTop="20dp"
-        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

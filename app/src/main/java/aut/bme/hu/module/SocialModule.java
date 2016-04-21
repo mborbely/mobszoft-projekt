@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import aut.bme.hu.service.LoginService;
 import aut.bme.hu.service.LoginServiceImpl;
+import aut.bme.hu.ui.LoginPresenter;
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,5 +18,10 @@ public class SocialModule {
     @Provides @Singleton
     LoginService provideLoginService(){
         return new LoginServiceImpl();
+    }
+
+    @Provides @Singleton
+    LoginPresenter provideLoginPresenter(){
+        return new LoginPresenter();
     }
 }
