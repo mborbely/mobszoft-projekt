@@ -1,0 +1,168 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "0.0.0"
+  title: Social app API
+
+# Describe your paths here
+paths:
+  # This is a path endpoint. Change it.
+  /friends:
+    # This is a HTTP operation
+    get:
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Lists friends of logged in user
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: Friends
+            type: array
+            items:
+              title: Person
+              type: Person
+        401:
+          description: Not logged in yet
+  /friends/{personId}:
+    post:
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Adds a person to your friends
+      # This is array of GET operation parameters:
+      parameters:
+        # An example parameter that is in query and is required
+        -
+          name: personId
+          in: path
+          description: Id of person to be added as friend
+          required: true
+          type: number
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+        401:
+          description: Not logged in yet
+        404: 
+          description: Person not found
+    get:
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Gets the profile imformation of a friend
+      # This is array of GET operation parameters:
+      parameters:
+        # An example parameter that is in query and is required
+        -
+          name: personId
+          in: path
+          description: Id of person to be added as friend
+          required: true
+          type: number
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: Friends
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              description:
+                type: string
+        401:
+          description: Not logged in yet
+        404: 
+          description: Person not found
+  /users:
+    post:
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Register a new user
+      # This is array of GET operation parameters:
+      parameters:
+        # An example parameter that is in query and is required
+        -
+          name: user
+          in: request
+          description: Registered person data
+          required: true
+          type: UserDetails
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+        401:
+          description: Not logged in yet
+        404: 
+          description: Person not found
+    get:
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Gets the profile imformation of a friend
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: Friends
+            $ref: #/definitions/PersonDetails
+        401:
+          description: Not logged in yet
+        404: 
+          description: Person not found
+definitions:
+  Person:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      description:
+        type: string
+  PersonDetails:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      description:
+        type: string
+      birthplace:
+        type: string
+  User:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      description:
+        type: string
+      birthplace:
+        type: string
+      password:
+        type: string
+
+      
+        
