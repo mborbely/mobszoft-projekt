@@ -1,8 +1,8 @@
-package aut.bme.hu.service;
+package aut.bme.hu.service.login;
 
 /**
  * Created by mobsoft on 2016. 04. 08..
  */
-public interface LoginService {
+public interface LoginInteractor {
     boolean login(String email, String password);
 }

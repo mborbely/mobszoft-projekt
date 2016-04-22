@@ -12,10 +12,10 @@ import android.widget.Toast;
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
-import aut.bme.hu.ui.LoginPresenter;
-import aut.bme.hu.ui.LoginScreen;
+import aut.bme.hu.ui.login.LoginPresenter;
+import aut.bme.hu.ui.login.LoginScreen;
 
-public class MainActivity extends AppCompatActivity implements LoginScreen{
+public class LoginActivity extends AppCompatActivity implements LoginScreen{
 
     @Inject
     LoginPresenter loginPresenter;
@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity implements LoginScreen{
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        loginPresenter.detachScreen();
     }
 
     @Override

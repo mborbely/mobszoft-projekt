@@ -1,4 +1,4 @@
-package aut.bme.hu.ui;
+package aut.bme.hu.ui.login;
 
 /**
  * Created by mobsoft on 2016. 04. 08..
