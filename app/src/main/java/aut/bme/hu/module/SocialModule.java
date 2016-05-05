@@ -2,9 +2,12 @@ package aut.bme.hu.module;
 
 import javax.inject.Singleton;
 
-import aut.bme.hu.service.LoginService;
-import aut.bme.hu.service.LoginServiceImpl;
-import aut.bme.hu.ui.LoginPresenter;
+import aut.bme.hu.service.friends.FriendsInteractor;
+import aut.bme.hu.service.friends.FriendsInteractorImpl;
+import aut.bme.hu.service.login.LoginInteractor;
+import aut.bme.hu.service.login.LoginInteractorImpl;
+import aut.bme.hu.ui.friends.FriendsPresenter;
+import aut.bme.hu.ui.login.LoginPresenter;
 import dagger.Module;
 import dagger.Provides;
 
@@ -16,12 +19,22 @@ import dagger.Provides;
 public class SocialModule {
 
     @Provides @Singleton
-    LoginService provideLoginService(){
-        return new LoginServiceImpl();
+    LoginInteractor provideLoginService(){
+        return new LoginInteractorImpl();
     }
 
     @Provides @Singleton
     LoginPresenter provideLoginPresenter(){
         return new LoginPresenter();
+    }
+
+    @Provides @Singleton
+    FriendsInteractor provideFriendsService(){
+        return new FriendsInteractorImpl();
+    }
+
+    @Provides @Singleton
+    FriendsPresenter provideFriendsPresenter(){
+        return new FriendsPresenter();
     }
 }
