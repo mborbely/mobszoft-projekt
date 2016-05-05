@@ -2,6 +2,8 @@ package aut.bme.hu.service.login;
 
 import android.util.Log;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by mobsoft on 2016. 04. 08..
  */
@@ -9,8 +11,8 @@ import android.util.Log;
 public class LoginInteractorImpl implements LoginInteractor {
 
     @Override
-    public boolean login(String email, String password) {
+    public void login(String email, String password) {
         Log.i("LoginInteractorImpl", email);
-        return true;
+        EventBus.getDefault().post(new SuccessfulLoginEvent());
     }
 }

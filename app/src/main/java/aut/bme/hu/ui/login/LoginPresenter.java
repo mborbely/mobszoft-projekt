@@ -1,9 +1,13 @@
 package aut.bme.hu.ui.login;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
 import aut.bme.hu.service.login.LoginInteractor;
+import aut.bme.hu.service.login.SuccessfulLoginEvent;
 import aut.bme.hu.ui.Presenter;
 
 /**
@@ -19,12 +23,12 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     }
 
     public void login(String email, String password){
-        boolean success = loginInteractor.login(email, password);
+        loginInteractor.login(email, password);
+    }
 
-        if (success){
-            screen.loginSuccess();
-        }
-
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    void onLoginSuccess(SuccessfulLoginEvent successfulLoginEvent){
+        screen.loginSuccess();
     }
 
 
