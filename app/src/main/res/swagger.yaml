@@ -24,11 +24,9 @@ paths:
           # A schema describing your response object.
           # Use JSON Schema format
           schema:
-            title: Friends
             type: array
             items:
-              title: Person
-              type: Person
+              $ref: '#/definitions/Person'
         401:
           description: Not logged in yet
   /friends/{personId}:
@@ -75,56 +73,29 @@ paths:
           # A schema describing your response object.
           # Use JSON Schema format
           schema:
-            title: Friends
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              description:
-                type: string
+            type: array
+            items:
+              $ref: '#/definitions/PersonDetails'
         401:
           description: Not logged in yet
         404: 
           description: Person not found
   /users:
     post:
-      # Describe this verb here. Note: you can use markdown
       description: |
         Register a new user
-      # This is array of GET operation parameters:
       parameters:
-        # An example parameter that is in query and is required
-        -
-          name: user
-          in: request
-          description: Registered person data
-          required: true
-          type: UserDetails
-      # Expected responses for this operation:
-      responses:
-        # Response code
-        200:
-          description: Successful response
-        401:
-          description: Not logged in yet
-        404: 
-          description: Person not found
-    get:
-      # Describe this verb here. Note: you can use markdown
-      description: |
-        Gets the profile imformation of a friend
-      # Expected responses for this operation:
-      responses:
-        # Response code
-        200:
-          description: Successful response
-          # A schema describing your response object.
-          # Use JSON Schema format
+        - name: user
+          in: body
+          description: The pet JSON you want to post
           schema:
-            title: Friends
-            $ref: #/definitions/PersonDetails
+            $ref: '#/definitions/Registration'
+          required: true
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
         401:
           description: Not logged in yet
         404: 
@@ -150,7 +121,7 @@ definitions:
         type: string
       birthplace:
         type: string
-  User:
+  Registration:
     type: object
     properties:
       id:
