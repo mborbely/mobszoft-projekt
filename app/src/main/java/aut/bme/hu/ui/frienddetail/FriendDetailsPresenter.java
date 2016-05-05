@@ -12,13 +12,13 @@ import aut.bme.hu.ui.Presenter;
 /**
  * Created by mobsoft on 2016. 04. 22..
  */
-public class FriendsPresenter extends Presenter<FriendDetailsScreen>{
+public class FriendDetailsPresenter extends Presenter<FriendDetailsScreen>{
 
     @Inject
     FriendsInteractor friendsInteractor;
 
 
-    public FriendsPresenter(){
+    public FriendDetailsPresenter(){
         SocialApplication.injector.inject(this);
     }
 
@@ -27,7 +27,7 @@ public class FriendsPresenter extends Presenter<FriendDetailsScreen>{
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFriendsFetched(FriendsFetchedEvent event){
+    public void onFriendDetailsFetched(FriendDetailsFetchedEvent event){
 
     }
 

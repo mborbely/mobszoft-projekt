@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import aut.bme.hu.mobszoft_projekt.LoginActivity;
 import aut.bme.hu.service.friends.FriendsInteractor;
 import aut.bme.hu.service.login.LoginInteractor;
+import aut.bme.hu.ui.frienddetail.FriendDetailsPresenter;
 import aut.bme.hu.ui.friends.FriendsPresenter;
 import aut.bme.hu.ui.login.LoginPresenter;
 import dagger.Component;
@@ -25,5 +26,7 @@ public interface SocialComponent {
     void inject(FriendsInteractor friendsInteractor);
 
     void inject(FriendsPresenter friendsPresenter);
+
+    void inject (FriendDetailsPresenter friendDetailsPresenter);
 
 }
