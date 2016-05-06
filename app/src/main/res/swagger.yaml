@@ -96,10 +96,21 @@ paths:
         # Response code
         200:
           description: Successful response
-        401:
-          description: Not logged in yet
-        404: 
-          description: Person not found
+    put:
+      description: |
+        Update profile
+      parameters:
+        - name: user
+          in: body
+          description: The pet JSON you want to post
+          schema:
+            $ref: '#/definitions/PersonDetails'
+          required: true
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
 definitions:
   Person:
     type: object
