@@ -8,6 +8,7 @@ import aut.bme.hu.service.login.LoginInteractor;
 import aut.bme.hu.ui.frienddetail.FriendDetailsPresenter;
 import aut.bme.hu.ui.friends.FriendsPresenter;
 import aut.bme.hu.ui.login.LoginPresenter;
+import aut.bme.hu.ui.profile.EditProfilePresenter;
 import dagger.Component;
 
 /**
@@ -28,5 +29,10 @@ public interface SocialComponent {
     void inject(FriendsPresenter friendsPresenter);
 
     void inject (FriendDetailsPresenter friendDetailsPresenter);
+
+    void inject (EditProfilePresenter friendDetailsPresenter);
+
+
+
 
 }

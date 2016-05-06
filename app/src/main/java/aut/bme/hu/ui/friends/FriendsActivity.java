@@ -10,7 +10,7 @@ import android.view.View;
 import java.util.List;
 
 import aut.bme.hu.mobszoft_projekt.R;
-import aut.bme.hu.model.Friend;
+import aut.bme.hu.model.User;
 
 public class FriendsActivity extends AppCompatActivity implements FriendsScreen{
 
@@ -32,7 +32,7 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen{
     }
 
     @Override
-    public void onFriendsArrived(List<Friend> friends) {
+    public void onFriendsArrived(List<User> friends) {
 
     }
 }
