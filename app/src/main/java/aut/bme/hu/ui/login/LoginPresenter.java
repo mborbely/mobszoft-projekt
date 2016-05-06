@@ -27,7 +27,7 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    void onLoginSuccess(SuccessfulLoginEvent successfulLoginEvent){
+    public void onLoginSuccess(SuccessfulLoginEvent successfulLoginEvent){
         screen.loginSuccess();
     }
 
