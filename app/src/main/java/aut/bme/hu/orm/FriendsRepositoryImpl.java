@@ -2,12 +2,10 @@ package aut.bme.hu.orm;
 
 import java.util.List;
 
-import aut.bme.hu.model.Friend;
-
 /**
  * Created by mobsoft on 2016. 05. 06..
  */
-public class FriendsRepositoryImpl implements FriendReposirtory{
+public class FriendsRepositoryImpl implements FriendRepository {
 
     @Override
     public FriendEntity getFriendById(Long id) {
