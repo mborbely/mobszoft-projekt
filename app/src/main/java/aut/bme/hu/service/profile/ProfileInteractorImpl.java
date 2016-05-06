@@ -11,15 +11,15 @@ import aut.bme.hu.service.friends.FriendsInteractor;
 /**
  * Created by mobsoft on 2016. 04. 22..
  */
-public class FriendsInteractorImpl implements FriendsInteractor {
+public class ProfileInteractorImpl implements ProfileInteractor {
 
     @Override
-    public void listFriends() {
+    public void getProfile() {
 
     }
 
     @Override
-    public void getFriendById() {
+    public void updateProfile(User profile) {
 
     }
 }
