@@ -23,12 +23,12 @@ public class FriendsPresenter extends Presenter<FriendsScreen>{
     }
 
     public void listFriends(){
-
+        friendsInteractor.listFriends();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onFriendsFetched(FriendsFetchedEvent event){
-
+        screen.onFriendsArrived(event.friends);
     }
 
 
