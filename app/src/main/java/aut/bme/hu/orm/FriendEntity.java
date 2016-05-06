@@ -2,15 +2,15 @@ package aut.bme.hu.orm;
 
 import com.orm.SugarRecord;
 
-public class Friend extends SugarRecord{
+public class FriendEntity extends SugarRecord{
     String name;
     String description;
     String birthPlace;
 
-    public Friend(){
+    public FriendEntity(){
     }
 
-    public Friend(String name, String description, String birthPlace) {
+    public FriendEntity(String name, String description, String birthPlace) {
         this.name = name;
         this.description = description;
         this.birthPlace = birthPlace;
