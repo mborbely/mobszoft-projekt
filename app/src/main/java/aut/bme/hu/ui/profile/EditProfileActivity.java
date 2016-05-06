@@ -13,7 +13,7 @@ import aut.bme.hu.mobszoft_projekt.R;
 import aut.bme.hu.model.User;
 import aut.bme.hu.ui.friends.FriendsScreen;
 
-public class EditProfileActivity extends AppCompatActivity implements FriendsScreen{
+public class EditProfileActivity extends AppCompatActivity implements EditProfileScreen{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,12 @@ public class EditProfileActivity extends AppCompatActivity implements FriendsScr
     }
 
     @Override
-    public void onFriendsArrived(List<User> friends) {
+    public void onProfileDataArrived(User profile) {
+
+    }
+
+    @Override
+    public void onProfileDataSaved() {
 
     }
 }

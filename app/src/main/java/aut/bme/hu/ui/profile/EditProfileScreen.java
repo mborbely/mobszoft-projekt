@@ -9,6 +9,9 @@ import aut.bme.hu.model.User;
  */
 public interface EditProfileScreen {
 
-    void onFriendsArrived(List<User> friends);
+    void onProfileDataArrived(User profile);
+
+    void onProfileDataSaved();
+
 
 }

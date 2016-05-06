@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import aut.bme.hu.mobszoft_projekt.R;
+import aut.bme.hu.model.User;
 
 public class FriendDetailsActivity extends AppCompatActivity implements FriendDetailsScreen {
 
@@ -19,6 +20,11 @@ public class FriendDetailsActivity extends AppCompatActivity implements FriendDe
 
     @Override
     public void navigateBack() {
+
+    }
+
+    @Override
+    public void displayFriend(User friend) {
 
     }
 }
