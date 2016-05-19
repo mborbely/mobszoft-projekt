@@ -8,6 +8,10 @@ import aut.bme.hu.model.User;
  * Created by mobsoft on 2016. 04. 22..
  */
 public interface FriendsScreen {
+    void updateList();
+
+    void addFriendSuccess();
+
 
     void onFriendsArrived(List<User> friends );
 

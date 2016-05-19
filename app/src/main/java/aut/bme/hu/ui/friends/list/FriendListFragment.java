@@ -23,6 +23,7 @@ public class FriendListFragment extends Fragment {
 
     private List<User> friends;
     private FriendRecyclerViewAdapter adapter;
+    private  RecyclerView recyclerView;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -45,7 +46,7 @@ public class FriendListFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView = (RecyclerView) view;
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             adapter = new FriendRecyclerViewAdapter( userProvider);
@@ -67,7 +68,7 @@ public class FriendListFragment extends Fragment {
 
     @Override
     public void onAttach(Context context) {
-        onAttach((Activity)context);
+        onAttach((Activity) context);
     }
 
     @Override
@@ -77,12 +78,16 @@ public class FriendListFragment extends Fragment {
     }
 
 
+    public void update(){
+        recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
     public interface UserProvider {
-        void userClicked(User user);
+        void addFriendClicked(UserRow user);
 
-        List<User> getFriends();
+        List<UserRow> getFriends();
 
-        void showDetails(User friend);
+        void showDetails(UserRow friend);
 
     }
 

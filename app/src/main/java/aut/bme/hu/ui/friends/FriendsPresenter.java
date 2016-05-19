@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import aut.bme.hu.app.SocialApplication;
 import aut.bme.hu.interactor.friends.FriendsInteractor;
 import aut.bme.hu.ui.Presenter;
+import aut.bme.hu.ui.friends.list.UserRow;
 
 /**
  * Created by mobsoft on 2016. 04. 22..
@@ -16,7 +17,6 @@ public class FriendsPresenter extends Presenter<FriendsScreen>{
 
     @Inject
     FriendsInteractor friendsInteractor;
-
 
     public FriendsPresenter(){
         SocialApplication.injector.inject(this);
@@ -31,5 +31,9 @@ public class FriendsPresenter extends Presenter<FriendsScreen>{
         screen.onFriendsArrived(event.friends);
     }
 
+    public void userClicked(UserRow user) {
+        user.setFriend(true);
+        screen.updateList();
+    }
 
 }
