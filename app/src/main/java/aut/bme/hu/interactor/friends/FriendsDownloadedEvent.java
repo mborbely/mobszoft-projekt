@@ -1,4 +1,4 @@
-package aut.bme.hu.service.friends;
+package aut.bme.hu.interactor.friends;
 
 import java.util.List;
 

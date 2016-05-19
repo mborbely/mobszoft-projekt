@@ -1,4 +1,4 @@
-package aut.bme.hu.service.profile;
+package aut.bme.hu.interactor.profile;
 
 
 import aut.bme.hu.model.User;

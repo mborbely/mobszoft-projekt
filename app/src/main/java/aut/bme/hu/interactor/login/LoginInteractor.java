@@ -1,4 +1,4 @@
-package aut.bme.hu.service.login;
+package aut.bme.hu.interactor.login;
 
 /**
  * Created by mobsoft on 2016. 04. 08..

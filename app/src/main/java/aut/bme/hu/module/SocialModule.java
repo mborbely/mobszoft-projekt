@@ -2,16 +2,16 @@ package aut.bme.hu.module;
 
 import javax.inject.Singleton;
 
-import aut.bme.hu.service.friends.FriendsInteractor;
-import aut.bme.hu.service.friends.FriendsInteractorImpl;
-import aut.bme.hu.service.login.LoginInteractor;
-import aut.bme.hu.service.login.LoginInteractorImpl;
-import aut.bme.hu.service.profile.ProfileInteractor;
-import aut.bme.hu.service.profile.ProfileInteractorImpl;
+import aut.bme.hu.interactor.friends.FriendsInteractor;
+import aut.bme.hu.interactor.friends.FriendsInteractorImpl;
+import aut.bme.hu.interactor.login.LoginInteractor;
+import aut.bme.hu.interactor.login.LoginInteractorImpl;
+import aut.bme.hu.interactor.profile.ProfileInteractor;
+import aut.bme.hu.interactor.profile.ProfileInteractorImpl;
 import aut.bme.hu.ui.frienddetail.FriendDetailsPresenter;
 import aut.bme.hu.ui.friends.FriendsPresenter;
 import aut.bme.hu.ui.login.LoginPresenter;
-import aut.bme.hu.ui.profile.EditProfilePresenter;
+import aut.bme.hu.ui.profile.RegisterPresenter;
 import dagger.Module;
 import dagger.Provides;
 
@@ -53,7 +53,7 @@ public class SocialModule {
     }
 
     @Provides @Singleton
-    EditProfilePresenter provideEditProfilePresenter(){
-        return new EditProfilePresenter();
+    RegisterPresenter provideEditProfilePresenter(){
+        return new RegisterPresenter();
     }
 }

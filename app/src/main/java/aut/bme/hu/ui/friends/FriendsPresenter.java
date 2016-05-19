@@ -6,7 +6,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
-import aut.bme.hu.service.friends.FriendsInteractor;
+import aut.bme.hu.interactor.friends.FriendsInteractor;
 import aut.bme.hu.ui.Presenter;
 
 /**

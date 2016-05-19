@@ -3,12 +3,14 @@ package aut.bme.hu.module;
 import javax.inject.Singleton;
 
 import aut.bme.hu.mobszoft_projekt.LoginActivity;
-import aut.bme.hu.service.friends.FriendsInteractor;
-import aut.bme.hu.service.login.LoginInteractor;
+import aut.bme.hu.interactor.friends.FriendsInteractor;
+import aut.bme.hu.interactor.login.LoginInteractor;
+import aut.bme.hu.ui.frienddetail.FriendDetailsActivity;
 import aut.bme.hu.ui.frienddetail.FriendDetailsPresenter;
 import aut.bme.hu.ui.friends.FriendsPresenter;
 import aut.bme.hu.ui.login.LoginPresenter;
-import aut.bme.hu.ui.profile.EditProfilePresenter;
+import aut.bme.hu.ui.profile.RegisterActivity;
+import aut.bme.hu.ui.profile.RegisterPresenter;
 import dagger.Component;
 
 /**
@@ -30,9 +32,10 @@ public interface SocialComponent {
 
     void inject (FriendDetailsPresenter friendDetailsPresenter);
 
-    void inject (EditProfilePresenter friendDetailsPresenter);
+    void inject (RegisterPresenter friendDetailsPresenter);
 
+    void inject (RegisterActivity registerActivity);
 
-
+    void inject (FriendDetailsActivity friendDetailsActivity);
 
 }

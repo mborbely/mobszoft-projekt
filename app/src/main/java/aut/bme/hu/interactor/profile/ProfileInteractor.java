@@ -1,4 +1,4 @@
-package aut.bme.hu.service.profile;
+package aut.bme.hu.interactor.profile;
 
 import aut.bme.hu.model.User;
 
@@ -9,6 +9,6 @@ public interface ProfileInteractor {
 
     void getProfile();
 
-    void updateProfile(User profile);
+    void saveProfile(User profile);
 
 }

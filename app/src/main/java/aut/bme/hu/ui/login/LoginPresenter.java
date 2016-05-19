@@ -6,8 +6,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
-import aut.bme.hu.service.login.LoginInteractor;
-import aut.bme.hu.service.login.SuccessfulLoginEvent;
+import aut.bme.hu.interactor.login.LoginInteractor;
+import aut.bme.hu.interactor.login.SuccessfulLoginEvent;
 import aut.bme.hu.ui.Presenter;
 
 /**

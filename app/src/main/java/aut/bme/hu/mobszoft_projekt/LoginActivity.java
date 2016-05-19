@@ -1,5 +1,6 @@
 package aut.bme.hu.mobszoft_projekt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import javax.inject.Inject;
 import aut.bme.hu.app.SocialApplication;
 import aut.bme.hu.ui.login.LoginPresenter;
 import aut.bme.hu.ui.login.LoginScreen;
+import aut.bme.hu.ui.profile.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginScreen{
 
@@ -35,6 +37,11 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
         loginPresenter.attachScreen(this);
 
 
+        setupLoginButton();
+
+    }
+
+    private void setupRegisterButton() {
         View loginBtn = findViewById(R.id.login_btn);
         Button loginButton = (Button) loginBtn;
         final EditText emailField = (EditText)findViewById(R.id.email);
@@ -47,7 +54,22 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
                 loginPresenter.login(emailField.getText().toString(), passwordField.getText().toString());
             }
         });
+    }
 
+    private void setupLoginButton() {
+        View btn = findViewById(R.id.register_btn);
+        Button registerButton = (Button) btn;
+        final EditText emailField = (EditText)findViewById(R.id.email);
+        final EditText passwordField = (EditText)findViewById(R.id.password);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

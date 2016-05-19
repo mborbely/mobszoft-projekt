@@ -1,4 +1,4 @@
-package aut.bme.hu.service.login;
+package aut.bme.hu.interactor.login;
 
 import android.util.Log;
 

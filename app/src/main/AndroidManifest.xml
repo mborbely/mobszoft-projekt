@@ -23,6 +23,14 @@
             android:name="aut.bme.hu.ui.friends.FriendsActivity"
             android:label="@string/title_activity_friends"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="aut.bme.hu.ui.profile.RegisterActivity"
+            android:label="RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="aut.bme.hu.ui.frienddetail.FriendDetailsActivity"
+            android:label="FriendDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
