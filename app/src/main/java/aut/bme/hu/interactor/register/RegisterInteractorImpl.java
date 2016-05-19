@@ -30,7 +30,7 @@ public class RegisterInteractorImpl implements RegisterInteractor {
 
             Response<io.swagger.client.model.Registration> response = defaultApi.usersPost(registration).execute();
 
-             EventBus.getDefault().post(new RegistrationSuccessfulEvent(response.body()));
+            EventBus.getDefault().post(new RegistrationSuccessfulEvent(response.body()));
         } catch (IOException e) {
             e.printStackTrace();
         }

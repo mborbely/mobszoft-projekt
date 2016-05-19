@@ -17,8 +17,8 @@ import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
 import aut.bme.hu.mobszoft_projekt.R;
-import aut.bme.hu.model.Registration;
 import aut.bme.hu.ui.friends.FriendsActivity;
+import io.swagger.client.model.Registration;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterScreen {
 
@@ -43,21 +43,28 @@ public class RegisterActivity extends AppCompatActivity implements RegisterScree
         registerPresenter.attachScreen(this);
         setupDatePicker();
 
-        Button registerBtn = (Button) findViewById(R.id.register_btn);
+        final Button registerBtn = (Button) findViewById(R.id.register_btn);
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText email = (EditText) findViewById(R.id.email);
                 EditText pw = (EditText) findViewById(R.id.password);
                 EditText name = (EditText) findViewById(R.id.name);
+                EditText birthplace = (EditText) findViewById(R.id.birthplace);
+
 
                 EditText description = (EditText) findViewById(R.id.description);
 
                 Calendar cal = Calendar.getInstance();
                 cal.set(mYear, mMonth, mDay);
 
-                Registration registration = new Registration(name.getText().toString(), email.getText().toString(), description.getText().toString(), cal.getTime(), pw.getText().toString());
-                registerPresenter.saveProfile(registration);
+                Registration registration = new Registration();
+                registration.setEmail( email.getText().toString());
+                registration.setPassword(pw.getText().toString());
+                registration.setBirthplace(birthplace.getText().toString());
+                registration.setDescription(description.getText().toString());
+                registration.setName(name.getText().toString());
+                registerPresenter.register(registration);
             }
         });
 

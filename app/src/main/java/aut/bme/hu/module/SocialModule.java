@@ -8,6 +8,8 @@ import aut.bme.hu.interactor.login.LoginInteractor;
 import aut.bme.hu.interactor.login.LoginInteractorImpl;
 import aut.bme.hu.interactor.profile.ProfileInteractor;
 import aut.bme.hu.interactor.profile.ProfileInteractorImpl;
+import aut.bme.hu.interactor.register.RegisterInteractor;
+import aut.bme.hu.interactor.register.RegisterInteractorImpl;
 import aut.bme.hu.ui.frienddetail.FriendDetailsPresenter;
 import aut.bme.hu.ui.friends.FriendsPresenter;
 import aut.bme.hu.ui.login.LoginPresenter;
@@ -62,5 +64,11 @@ public class SocialModule {
     @Provides @Singleton
     DefaultApi provideDefaultApi(){
         return new DefaultApiImpl();
+    }
+
+
+    @Provides @Singleton
+    RegisterInteractor provideRegisterInteractor(){
+        return new RegisterInteractorImpl();
     }
 }
