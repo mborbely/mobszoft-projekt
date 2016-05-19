@@ -48,7 +48,6 @@ public class FriendListFragment extends Fragment {
             RecyclerView recyclerView = (RecyclerView) view;
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
             adapter = new FriendRecyclerViewAdapter( userProvider);
             recyclerView.setAdapter(adapter);
         }
@@ -82,6 +81,9 @@ public class FriendListFragment extends Fragment {
         void userClicked(User user);
 
         List<User> getFriends();
+
+        void showDetails(User friend);
+
     }
 
 }

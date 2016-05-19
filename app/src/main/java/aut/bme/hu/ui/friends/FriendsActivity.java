@@ -34,4 +34,9 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen,
     public List<User> getFriends() {
         return Lists.newArrayList(new User("asd", null, null, null), new User("asdasddas", null, null, null));
     }
+
+    @Override
+    public void showDetails(User friend) {
+
+    }
 }

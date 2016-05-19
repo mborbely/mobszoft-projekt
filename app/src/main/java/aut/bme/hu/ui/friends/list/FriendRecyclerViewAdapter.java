@@ -30,16 +30,16 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.userModel = friends.get(position);
         holder.name.setText(holder.userModel.getName());
-
+        holder.mView.setClickable(false);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != userProvider) {
-
+                    userProvider.showDetails(holder.userModel);
                 }
             }
         });
@@ -50,7 +50,9 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
                 if (null != userProvider) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
+                    v.setVisibility(View.INVISIBLE);
                     userProvider.userClicked(holder.userModel);
+                    holder.mView.setClickable(true);
                 }
             }
         });
