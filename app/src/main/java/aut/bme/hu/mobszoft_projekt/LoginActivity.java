@@ -8,11 +8,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
+import aut.bme.hu.ui.friends.FriendsActivity;
 import aut.bme.hu.ui.login.LoginPresenter;
 import aut.bme.hu.ui.login.LoginScreen;
 import aut.bme.hu.ui.profile.RegisterActivity;
@@ -24,7 +24,8 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
 
     @Override
     public void loginSuccess() {
-        Toast.makeText(this, "Successful login", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, FriendsActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
 
         loginPresenter.attachScreen(this);
 
+        setupRegisterButton();
 
         setupLoginButton();
 

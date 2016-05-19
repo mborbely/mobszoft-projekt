@@ -3,6 +3,9 @@ package aut.bme.hu.ui.login;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
@@ -18,12 +21,21 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     @Inject
     LoginInteractor loginInteractor;
 
+    private Executor networkExecutor =  Executors.newFixedThreadPool(1);
+
+
     public LoginPresenter(){
         SocialApplication.injector.inject(this);
     }
 
-    public void login(String email, String password){
-        loginInteractor.login(email, password);
+    public void login(final String email, final String password){
+
+        networkExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                loginInteractor.login(email, password);
+            }
+        });
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -2,20 +2,20 @@ package aut.bme.hu.interactor.friends;
 
 import java.util.List;
 
-import aut.bme.hu.orm.FriendEntity;
+import io.swagger.client.model.Person;
 
 public class FriendsDownloadedEvent {
-    List<FriendEntity> friends;
+    List<Person> friends;
 
-    public FriendsDownloadedEvent(List<FriendEntity> friends) {
-        this.friends = friends;
-    }
-
-    public List<FriendEntity> getFriends() {
+    public List<Person> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<FriendEntity> friends) {
+    public void setFriends(List<Person> friends) {
+        this.friends = friends;
+    }
+
+    public FriendsDownloadedEvent(List<Person> friends) {
         this.friends = friends;
     }
 }

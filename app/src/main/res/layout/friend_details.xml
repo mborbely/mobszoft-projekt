@@ -41,7 +41,7 @@
                 android:paddingTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/desc"
-                android:text="Lorewrtfmetgne4rg f ejosdererfg" />
+                android:text="Loading..." />
         </LinearLayout>
 
         <LinearLayout
@@ -64,7 +64,7 @@
                 android:paddingTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/email"
-                android:text="Lorewrtfmasdasdererfg" />
+                android:text="Loading..." />
         </LinearLayout>
 
         <LinearLayout
@@ -87,7 +87,7 @@
                 android:paddingTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/birthplace"
-                android:text="Lo" />
+                android:text="Loading..." />
         </LinearLayout>
 
         <LinearLayout
@@ -110,7 +110,7 @@
                 android:paddingTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/birthdate"
-                android:text="Lorewrtfmetgne4rg f ejorgfejg sadasd a asdasd sddasdasdererfg" />
+                android:text="Loading..." />
         </LinearLayout>
 
 

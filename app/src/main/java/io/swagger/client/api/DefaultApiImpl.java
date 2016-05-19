@@ -43,8 +43,9 @@ public class DefaultApiImpl implements DefaultApi{
         Registration reg = new Registration();
         BigDecimal id = new BigDecimal(intId);
         reg.setId(id);
-        reg.setName("Bela");
-        reg.setEmail("1@b.com");
+        reg.setName("" + intId);
+        reg.setEmail(intId +"");
+        reg.setPassword("" +intId);
         reg.setBirthplace("Győr");
         persons.put(id, reg);
     }

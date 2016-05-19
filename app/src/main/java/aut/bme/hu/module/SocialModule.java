@@ -14,6 +14,8 @@ import aut.bme.hu.ui.login.LoginPresenter;
 import aut.bme.hu.ui.profile.RegisterPresenter;
 import dagger.Module;
 import dagger.Provides;
+import io.swagger.client.api.DefaultApi;
+import io.swagger.client.api.DefaultApiImpl;
 
 /**
  * Created by mobsoft on 2016. 04. 08..
@@ -55,5 +57,10 @@ public class SocialModule {
     @Provides @Singleton
     RegisterPresenter provideEditProfilePresenter(){
         return new RegisterPresenter();
+    }
+
+    @Provides @Singleton
+    DefaultApi provideDefaultApi(){
+        return new DefaultApiImpl();
     }
 }

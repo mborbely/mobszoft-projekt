@@ -16,6 +16,6 @@ public class ProfileInteractorImpl implements ProfileInteractor {
 
     @Override
     public void saveProfile(User profile) {
-        EventBus.getDefault().post(new ProfileDataSavedEvent(profile));
+        EventBus.getDefault().post(new RegistratedEvent(profile));
     }
 }

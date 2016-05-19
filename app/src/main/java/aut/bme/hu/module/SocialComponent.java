@@ -41,5 +41,8 @@ public interface SocialComponent {
 
     void inject (FriendsActivity friendsActivity);
 
+    void inject (LoginInteractor loginInteractor);
+
+
 
 }
