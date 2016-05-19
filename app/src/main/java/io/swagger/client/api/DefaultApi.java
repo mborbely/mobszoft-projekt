@@ -1,22 +1,18 @@
 package io.swagger.client.api;
 
-import io.swagger.client.CollectionFormats.*;
+import java.math.BigDecimal;
+import java.util.List;
 
-
-import retrofit2.Call;
-import retrofit2.http.*;
-
-import okhttp3.RequestBody;
-
+import io.swagger.client.model.Login;
 import io.swagger.client.model.Person;
 import io.swagger.client.model.PersonDetails;
-import java.math.BigDecimal;
 import io.swagger.client.model.Registration;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface DefaultApi {
   
@@ -34,14 +30,14 @@ public interface DefaultApi {
   /**
    * 
    * Gets the profile imformation of a friend
-   * @param personId Id of person to be added as friend
    * @return Call<List<PersonDetails>>
    */
   
-  @GET("friends/{personId}")
-  Call<List<PersonDetails>> friendsPersonIdGet(
-          @Path("personId") BigDecimal personId
-  );
+  @GET("friends")
+  Call<PersonDetails> friendsPersonIdGet(BigDecimal personId);
+
+  @GET("friends")
+  Call<Boolean> login(Login login);
 
   
   /**
@@ -52,7 +48,7 @@ public interface DefaultApi {
    */
   
   @POST("friends/{personId}")
-  Call<Void> friendsPersonIdPost(
+  Call<BigDecimal> friendsPersonIdPost(
           @Path("personId") BigDecimal personId
   );
 
@@ -65,7 +61,7 @@ public interface DefaultApi {
    */
   
   @PUT("users")
-  Call<Void> usersPut(
+  Call<Registration> usersPut(
           @Body PersonDetails user
   );
 
@@ -78,7 +74,7 @@ public interface DefaultApi {
    */
   
   @POST("users")
-  Call<Void> usersPost(
+  Call<Registration> usersPost(
           @Body Registration user
   );
 

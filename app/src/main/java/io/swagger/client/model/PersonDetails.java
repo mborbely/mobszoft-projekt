@@ -1,11 +1,12 @@
 package io.swagger.client.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.math.BigDecimal;
 import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
-
-import com.google.gson.annotations.SerializedName;
 
 
 
@@ -24,8 +25,9 @@ public class PersonDetails   {
   
   @SerializedName("birthplace")
   private String birthplace = null;
-  
 
+  @SerializedName("email")
+  private String email = null;
   
   /**
    **/
@@ -70,7 +72,14 @@ public class PersonDetails   {
     this.birthplace = birthplace;
   }
 
-  
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -84,12 +93,14 @@ public class PersonDetails   {
     return Objects.equals(id, personDetails.id) &&
         Objects.equals(name, personDetails.name) &&
         Objects.equals(description, personDetails.description) &&
-        Objects.equals(birthplace, personDetails.birthplace);
+        Objects.equals(birthplace, personDetails.birthplace)
+            &&         Objects.equals(email, personDetails.email);
+
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, birthplace);
+    return Objects.hash(id, name, description, birthplace, email);
   }
 
   @Override

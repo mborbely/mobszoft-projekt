@@ -1,11 +1,12 @@
 package io.swagger.client.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.math.BigDecimal;
 import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
-
-import com.google.gson.annotations.SerializedName;
 
 
 
@@ -21,6 +22,9 @@ public class Registration   {
   
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("email")
+  private String email = null;
   
   @SerializedName("birthplace")
   private String birthplace = null;
@@ -84,7 +88,14 @@ public class Registration   {
     this.password = password;
   }
 
-  
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -99,12 +110,14 @@ public class Registration   {
         Objects.equals(name, registration.name) &&
         Objects.equals(description, registration.description) &&
         Objects.equals(birthplace, registration.birthplace) &&
-        Objects.equals(password, registration.password);
+        Objects.equals(password, registration.password)
+            &&         Objects.equals(email, registration.email);
+
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, birthplace, password);
+    return Objects.hash(id, name, description, birthplace, password, email);
   }
 
   @Override
@@ -117,6 +130,8 @@ public class Registration   {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    birthplace: ").append(toIndentedString(birthplace)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+
     sb.append("}");
     return sb.toString();
   }
