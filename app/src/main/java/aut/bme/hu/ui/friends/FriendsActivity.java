@@ -1,5 +1,6 @@
 package aut.bme.hu.ui.friends;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -12,7 +13,7 @@ import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
 import aut.bme.hu.mobszoft_projekt.R;
-import aut.bme.hu.model.User;
+import aut.bme.hu.ui.frienddetail.FriendDetailsActivity;
 import aut.bme.hu.ui.friends.list.FriendListFragment;
 import aut.bme.hu.ui.friends.list.UserRow;
 
@@ -21,12 +22,15 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen,
     @Inject
     FriendsPresenter friendsPresenter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
         SocialApplication.injector.inject(this);
         friendsPresenter.attachScreen(this);
+        friendsPresenter.listFriends();
+        friendsPresenter.listUsers();
     }
 
     @Override
@@ -36,8 +40,9 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen,
     }
 
     @Override
-    public void onFriendsArrived(List<User> friends) {
-
+    public void onFriendsArrived(List<UserRow> friends) {
+        FriendListFragment friendListFragment = (FriendListFragment) getFragmentManager().findFragmentByTag("listfriendsfrag");
+        friendListFragment.update(friends);
     }
 
     @Override
@@ -47,7 +52,9 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen,
 
     @Override
     public void showDetails(UserRow friend) {
-
+        Intent intent = new Intent(this, FriendDetailsActivity.class);
+        intent.putExtra("id", friend.getPerson().getId().toString());
+        startActivity(intent);
     }
 
     @Override
@@ -58,8 +65,10 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen,
 
     @Override
     public List<UserRow> getFriends() {
-        return Lists.newArrayList(new UserRow(new User("asd", null, null, null), false), new UserRow(new User("asdasddas", null, null, null), true));
+        return Lists.newArrayList();
     }
+
+
 
     @Override
     public void addFriendSuccess() {

@@ -44,8 +44,8 @@ public class DefaultApiImpl implements DefaultApi{
         BigDecimal id = new BigDecimal(intId);
         reg.setId(id);
         reg.setName("" + intId);
-        reg.setEmail(intId +"");
-        reg.setPassword("" +intId);
+        reg.setEmail(intId + "");
+        reg.setPassword("" + intId);
         reg.setBirthplace("Győr");
         persons.put(id, reg);
     }
@@ -96,6 +96,54 @@ public class DefaultApiImpl implements DefaultApi{
             @Override
             public Call<List<Person>> clone() {
                 return this;
+            }
+        };
+    }
+
+    @Override
+    public Call<List<Person>> usersGet() {
+        return new Call<List<Person>>() {
+            @Override
+            public Response<List<Person>> execute() throws IOException {
+                List<Person> personss = Lists.transform(Lists.newArrayList(persons.values()), new Function<Registration, Person>() {
+
+                    @Override
+                    public Person apply(Registration input) {
+                        Person result = new Person();
+
+                        result.setName(input.getName());
+                        result.setId(input.getId());
+                        result.setDescription(input.getDescription());
+                        return result;
+                    }
+                });
+
+                return Response.success(personss);
+            }
+
+            @Override
+            public void enqueue(Callback<List<Person>> callback) {
+
+            }
+
+            @Override
+            public boolean isExecuted() {
+                return false;
+            }
+
+            @Override
+            public void cancel() {
+
+            }
+
+            @Override
+            public boolean isCanceled() {
+                return false;
+            }
+
+            @Override
+            public Call<List<Person>> clone() {
+                return null;
             }
         };
     }

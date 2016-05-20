@@ -1,23 +1,19 @@
 package aut.bme.hu.ui.friends.list;
 
-import aut.bme.hu.model.User;
+import io.swagger.client.model.Person;
 
 public class UserRow {
-    private User user;
+    private Person person;
 
     private boolean friend;
 
-    public UserRow(User user, boolean friend) {
-        this.user = user;
-        this.friend = friend;
+
+    public Person getPerson() {
+        return person;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     public boolean isFriend() {

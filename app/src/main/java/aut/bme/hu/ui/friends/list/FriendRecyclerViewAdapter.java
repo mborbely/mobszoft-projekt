@@ -14,7 +14,7 @@ import aut.bme.hu.mobszoft_projekt.R;
 
 public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecyclerViewAdapter.ViewHolder> {
 
-    private final List<UserRow> friends;
+    private List<UserRow> friends;
     private final FriendListFragment.UserProvider userProvider;
 
     public FriendRecyclerViewAdapter(FriendListFragment.UserProvider userProvider) {
@@ -31,15 +31,17 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.userModel = friends.get(position);
-        holder.name.setText(holder.userModel.getUser().getName());
-        boolean isFriend = holder.userModel.isFriend();
+        holder.name.setText(holder.userModel.getPerson().getName());
+        final boolean isFriend = holder.userModel.isFriend();
         holder.mView.setClickable(isFriend);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (null != userProvider) {
-                    userProvider.showDetails(holder.userModel);
+                    if (isFriend){
+                        userProvider.showDetails(holder.userModel);
+                    }
                 }
             }
         });
@@ -54,7 +56,8 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
                 if (null != userProvider) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    userProvider.addFriendClicked(holder.userModel);
+                        userProvider.addFriendClicked(holder.userModel);
+
                 }
             }
         });
@@ -64,6 +67,12 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
     public int getItemCount() {
         return friends.size();
     }
+
+    public void setFriends(List<UserRow> rows){
+        friends.clear();
+        friends.addAll(rows);
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;

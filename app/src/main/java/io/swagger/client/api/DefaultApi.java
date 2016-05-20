@@ -78,5 +78,9 @@ public interface DefaultApi {
           @Body Registration user
   );
 
+  @GET("users")
+  Call<List<Person>> usersGet(
+  );
+
   
 }

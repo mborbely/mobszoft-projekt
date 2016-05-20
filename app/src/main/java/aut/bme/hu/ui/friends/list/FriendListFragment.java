@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import aut.bme.hu.mobszoft_projekt.R;
-import aut.bme.hu.model.User;
 
 
 public class FriendListFragment extends Fragment {
@@ -21,7 +20,6 @@ public class FriendListFragment extends Fragment {
 
     private UserProvider userProvider;
 
-    private List<User> friends;
     private FriendRecyclerViewAdapter adapter;
     private  RecyclerView recyclerView;
 
@@ -62,7 +60,7 @@ public class FriendListFragment extends Fragment {
             userProvider = (UserProvider) activity;
         } else {
             throw new RuntimeException(activity.toString()
-                    + " must implement AdvertismentManager");
+                    + " must implement UserProvider");
         }
     }
 
@@ -79,6 +77,11 @@ public class FriendListFragment extends Fragment {
 
 
     public void update(){
+        recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
+    public void update(List<UserRow> rows){
+        adapter.setFriends(rows);
         recyclerView.getAdapter().notifyDataSetChanged();
     }
 

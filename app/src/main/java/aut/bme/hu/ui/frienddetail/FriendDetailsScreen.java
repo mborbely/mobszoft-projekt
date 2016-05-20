@@ -1,7 +1,7 @@
 package aut.bme.hu.ui.frienddetail;
 
 
-import aut.bme.hu.model.User;
+import io.swagger.client.model.PersonDetails;
 
 /**
  * Created by mobsoft on 2016. 04. 22..
@@ -10,6 +10,6 @@ public interface FriendDetailsScreen {
 
     void navigateBack();
 
-    void displayFriend(User friend);
+    void displayFriend(PersonDetails friend);
 
 }
