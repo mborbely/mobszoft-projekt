@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "383824210828",
+    "project_id": "mobszoft-projekt"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383824210828:android:ca89d8dbcdcf3ff5",
+        "android_client_info": {
+          "package_name": "aut.bme.hu.mobszoft_projekt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHvFubLNwFBP87OK4g-PBHNFhTr3miALo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-78091979-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

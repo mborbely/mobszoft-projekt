@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="aut.bme.hu.mobszoft_projekt">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:name="aut.bme.hu.app.SocialApplication"
         android:allowBackup="true"
@@ -31,6 +34,9 @@
             android:name="aut.bme.hu.ui.frienddetail.FriendDetailsActivity"
             android:label="FriendDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="e12c10a85ab75e369688761c5adb87699cd6e481" />
     </application>
 
 </manifest>

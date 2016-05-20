@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.common.collect.Lists;
 
 import java.util.List;
@@ -73,5 +74,12 @@ public class FriendsActivity extends AppCompatActivity implements FriendsScreen,
     @Override
     public void addFriendSuccess() {
         Toast.makeText(this,  "Successfully added friend.", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((SocialApplication)getApplication()).getDefaultTracker().setScreenName("FriendList");
+        ((SocialApplication)getApplication()).getDefaultTracker().send(new HitBuilders.ScreenViewBuilder().build());
     }
 }

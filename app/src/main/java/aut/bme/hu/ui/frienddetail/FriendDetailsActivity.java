@@ -3,7 +3,10 @@ package aut.bme.hu.ui.frienddetail;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.HitBuilders;
 
 import java.math.BigDecimal;
 
@@ -56,5 +59,13 @@ public class FriendDetailsActivity extends AppCompatActivity implements FriendDe
         description.setText(friend.getDescription());
         name.setText(friend.getName());
         email.setText(friend.getEmail());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("FriendDetailsActivity", "OnResume");
+        ((SocialApplication)getApplication()).getDefaultTracker().setScreenName("FriendDetailsList");
+        ((SocialApplication)getApplication()).getDefaultTracker().send(new HitBuilders.ScreenViewBuilder().build());
     }
 }

@@ -56,6 +56,8 @@
             android:text="Register"
             android:paddingTop="20dp"
             android:layout_centerHorizontal="true"/>
+
+
     </RelativeLayout>
 
 </RelativeLayout>

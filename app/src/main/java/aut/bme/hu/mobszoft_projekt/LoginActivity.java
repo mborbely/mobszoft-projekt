@@ -3,12 +3,17 @@ package aut.bme.hu.mobszoft_projekt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.analytics.HitBuilders;
+
+import io.fabric.sdk.android.Fabric;
 import javax.inject.Inject;
 
 import aut.bme.hu.app.SocialApplication;
@@ -31,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
 
         SocialApplication.injector.inject(this);
@@ -53,6 +59,10 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
 
             @Override
             public void onClick(View v) {
+                ((SocialApplication)getApplication()).getDefaultTracker().send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Logged in")
+                        .build());
                 loginPresenter.login(emailField.getText().toString(), passwordField.getText().toString());
             }
         });
@@ -100,5 +110,13 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("LoginActvity", "OnResume");
+        ((SocialApplication)getApplication()).getDefaultTracker().setScreenName("Login");
+        ((SocialApplication)getApplication()).getDefaultTracker().send(new HitBuilders.ScreenViewBuilder().build());
     }
 }
